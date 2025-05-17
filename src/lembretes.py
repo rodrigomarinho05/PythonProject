@@ -29,17 +29,15 @@ def enviar_mensagem_via_whatsapp(to_number, mensagem):
         message = client.messages.create(
             from_=from_number,
             to=f"whatsapp:{to_number}",
-            body=mensagem  # Corpo da mensagem personalizada
+            body=mensagem
         )
         print(f"Mensagem enviada com sucesso. SID: {message.sid}")
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
 
 def gerar_titulo():
-    # Data e dia da semana
     data_atual = datetime.now().strftime('%d/%m/%Y')
     dia_semana = datetime.now().strftime('%A')
-    # Traduzindo para português
     dias = {
         "Monday": "Segunda-feira",
         "Tuesday": "Terça-feira",
@@ -50,21 +48,21 @@ def gerar_titulo():
         "Sunday": "Domingo"
     }
     dia_semana = dias.get(dia_semana, dia_semana)
-    return f"Lembrete do {data_atual} - {dia_semana}:"
+    return f"Lembretes enviados em {data_atual} - {dia_semana}:"
 
-def verificar_lembretes():
+def enviar_todos_lembretes():
     lembretes = carregar_lembretes()
-    agora = datetime.now().strftime('%Y-%m-%d %H:%M')
+    if not lembretes:
+        print("Nenhum lembrete para enviar.")
+        return
 
     mensagens = []
     for lembrete in lembretes:
-        if lembrete['data_hora'] == agora:
-            mensagens.append(f"- {lembrete['mensagem']}")
+        mensagens.append(f"- {lembrete['mensagem']} ({lembrete['data_hora']})")
 
-    if mensagens:
-        titulo = gerar_titulo()
-        corpo_mensagem = titulo + "\n" + "\n".join(mensagens)
-        enviar_mensagem_via_whatsapp("+557197375445", corpo_mensagem)
+    titulo = gerar_titulo()
+    corpo_mensagem = titulo + "\n" + "\n".join(mensagens)
+    enviar_mensagem_via_whatsapp("+557197375445", corpo_mensagem)
 
 if __name__ == "__main__":
-    verificar_lembretes()
+    enviar_todos_lembretes()
