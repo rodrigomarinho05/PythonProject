@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8b29863-e058-4a13-9ce4-754cf7045820" name="Changes" comment="Novo Projeto - Lembrete">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/lembretes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/lembretes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lembretes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lembretes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/lembretes.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/lembretes.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
