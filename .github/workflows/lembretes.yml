@@ -24,7 +24,7 @@ jobs:
       - name: Instalar Dependências
         run: pip install -r requirements.txt
 
-      - name: Definir Variáveis de Ambiente Manualmente
+      - name: Definir Variáveis de Ambiente Corretamente
         run: |
           echo "ACCOUNT_SID=${{ secrets.ACCOUNT_SID }}" >> $GITHUB_ENV
           echo "AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
@@ -42,5 +42,4 @@ jobs:
           if [ -z "$TELEFONE" ]; then echo "[ERRO] Variável TELEFONE está vazia!"; fi
 
       - name: Rodar Script de Lembretes
-        run: |
-          python src/lembretes.py
+        run: python src/lembretes.py
