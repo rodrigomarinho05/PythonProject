@@ -5,7 +5,7 @@ on:
     branches:
       - Lembrete
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -24,19 +24,23 @@ jobs:
       - name: Instalar Dependências
         run: pip install -r requirements.txt
 
-      - name: Verificar Variáveis (Debug)
-        env:
-          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          TELEFONE: ${{ secrets.TELEFONE }}
+      - name: Definir Variáveis de Ambiente Manualmente
         run: |
-          echo "ACCOUNT_SID: $ACCOUNT_SID"
-          echo "AUTH_TOKEN: $AUTH_TOKEN"
-          echo "TELEFONE: $TELEFONE"
+          echo "ACCOUNT_SID=${{ secrets.ACCOUNT_SID }}" >> $GITHUB_ENV
+          echo "AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "TELEFONE=${{ secrets.TELEFONE }}" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Verificar Variáveis (Debug)
+        run: |
+          echo "Verificando variáveis de ambiente..."
+          echo "ACCOUNT_SID=$ACCOUNT_SID"
+          echo "AUTH_TOKEN=$AUTH_TOKEN"
+          echo "TELEFONE=$TELEFONE"
+          if [ -z "$ACCOUNT_SID" ]; then echo "[ERRO] Variável ACCOUNT_SID está vazia!"; fi
+          if [ -z "$AUTH_TOKEN" ]; then echo "[ERRO] Variável AUTH_TOKEN está vazia!"; fi
+          if [ -z "$TELEFONE" ]; then echo "[ERRO] Variável TELEFONE está vazia!"; fi
 
       - name: Rodar Script de Lembretes
-        env:
-          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          TELEFONE: ${{ secrets.TELEFONE }}
-        run: python src/lembretes.py
+        run: |
+          python src/lembretes.py
