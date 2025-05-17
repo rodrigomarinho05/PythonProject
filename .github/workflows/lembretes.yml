@@ -25,11 +25,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Definir Variáveis de Ambiente
+        run: |
+          echo "ACCOUNT_SID=${{ secrets.ACCOUNT_SID }}" >> $GITHUB_ENV
+          echo "AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "TELEFONE=${{ secrets.TELEFONE }}" >> $GITHUB_ENV
+
+      - name: Rodar Script de Lembretes
         env:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           TELEFONE: ${{ secrets.TELEFONE }}
-        run: |
-          echo "export ACCOUNT_SID=${{ secrets.ACCOUNT_SID }}" >> $GITHUB_ENV
-          echo "export AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
-          echo "export TELEFONE=${{ secrets.TELEFONE }}" >> $GITHUB
+        run: python src/lembretes.py
