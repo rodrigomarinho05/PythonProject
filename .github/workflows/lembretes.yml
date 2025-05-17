@@ -5,7 +5,7 @@ on:
     branches:
       - Lembrete
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -24,26 +24,19 @@ jobs:
       - name: Instalar Dependências
         run: pip install -r requirements.txt
 
-      - name: Definir Variáveis de Ambiente
+      - name: Verificar Variáveis (Debug)
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          TELEFONE: ${{ secrets.TELEFONE }}
         run: |
-          echo "ACCOUNT_SID=${{ secrets.ACCOUNT_SID }}" >> $GITHUB_ENV
-          echo "AUTH_TOKEN=${{ secrets.AUTH_TOKEN }}" >> $GITHUB_ENV
-          echo "TELEFONE=${{ secrets.TELEFONE }}" >> $GITHUB_ENV
-
-      - name: Verificar Variáveis
-        run: |
-          echo "Verificando variáveis..."
           echo "ACCOUNT_SID: $ACCOUNT_SID"
           echo "AUTH_TOKEN: $AUTH_TOKEN"
           echo "TELEFONE: $TELEFONE"
-        env:
-          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          TELEFONE: ${{ secrets.TELEFONE }}
 
       - name: Rodar Script de Lembretes
-        run: python src/lembretes.py
         env:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           TELEFONE: ${{ secrets.TELEFONE }}
+        run: python src/lembretes.py
