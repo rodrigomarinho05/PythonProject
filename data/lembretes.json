@@ -1,18 +1,14 @@
 [
     {
-<<<<<<< HEAD
         "data_hora": "2025-05-17 03:04",
         "mensagem": "teste01"
     },
     {
         "data_hora": "2025-05-17 03:04",
-=======
-        "data_hora": "2025-05-17 03:02",
         "mensagem": "teste01"
     },
     {
         "data_hora": "2025-05-17 03:03",
->>>>>>> 4aba44952d5d9ea31fa49e675a3514a0cda3648a
         "mensagem": "teste02"
     },
     {
