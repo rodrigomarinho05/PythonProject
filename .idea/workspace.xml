@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8b29863-e058-4a13-9ce4-754cf7045820" name="Changes" comment="Novo Projeto - Lembrete" />
+    <list default="true" id="b8b29863-e058-4a13-9ce4-754cf7045820" name="Changes" comment="Novo Projeto - Lembrete">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/lembretes.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/lembretes.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rodrigomarinho05"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rodrigomarinho05/PythonProject.git",
+    "accountId": "d42e5103-33a1-4380-b28c-b0964f0d330b"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
@@ -33,7 +48,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.lembretes.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Lembrete",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747438421333</updated>
-      <workItem from="1747438422535" duration="11701000" />
+      <workItem from="1747438422535" duration="13064000" />
     </task>
     <task id="LOCAL-00001" summary="Novo Projeto - Lembrete">
       <option name="closed" value="true" />
