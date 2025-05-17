@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Twilio Secrets
+.env
+
+# GitHub Actions
+*.log
